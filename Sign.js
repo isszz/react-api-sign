@@ -31,7 +31,7 @@ function sign(params: Object) {
     return string.toUpperCase();
 }
 
-function getUrl(url: string, params: Object, isUnSign: boolean) {
+function url(url: string, params: Object, isUnSign: boolean) {
     let result = url
     if (result.substr(result.length - 1) != '?') {
         result = result + `?`
@@ -55,6 +55,5 @@ function getUrl(url: string, params: Object, isUnSign: boolean) {
 export default {
     md5,
     time,
-    getUrl,
-    sign,
+    url
 }
