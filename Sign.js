@@ -17,14 +17,13 @@ function sign(params: Object) {
     for (let k in keys) {
         sorted[keys[k]] = params[keys[k]];
     }
-
-    let string = '';
-    for (let key in sorted) {
+    
+    let string = Object.keys(sorted).map(key => {
         let v = sorted[key];
         if(key != 'sign' && v != '' && typeof(v) != Object) {
-            string += key + '=' + v + '&';
+            return key + '=' + v;
         }
-    }
+    }).join('&');
 
     string += 'secret=kjhsdfhksjhf239ur2hfehf23'; // Replace with your secret
     string = md5(string);
