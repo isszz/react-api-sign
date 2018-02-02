@@ -41,12 +41,7 @@ export function url(url: string, params: Object, isUnSign: boolean) {
         params.sign = sign(params);
     }
     
-    for (let key in params) {
-        let value = params[key]
-        result += `${encodeURIComponent(key)}=${encodeURIComponent(value)}&`
-    }
-
-    result = result.substring(0, result.length - 1);
+	result += Object.keys(params).map(key => {return encodeURIComponent(key) + '=' + encodeURIComponent(params[key])}).join('&');
     console.log(result);
     return result;
 }
