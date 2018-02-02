@@ -40,8 +40,8 @@ export function url(url: string, params: Object, isUnSign: boolean) {
     if(!isUnSign) {
         params.sign = sign(params);
     }
-    
-	result += Object.keys(params).map(key => {return encodeURIComponent(key) + '=' + encodeURIComponent(params[key])}).join('&');
+
+    result += Object.keys(params).map(key => {return encodeURIComponent(key) + '=' + encodeURIComponent(params[key])}).join('&');
     console.log(result);
     return result;
 }
