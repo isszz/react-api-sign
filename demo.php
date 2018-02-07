@@ -2,21 +2,17 @@
 
 require SignSrv.php;
 
-$sign = empty($_GET['sign']) ? (empty($_POST['sign']) ? '' : $_POST['sign']) : $_GET['sign'];
-$timestamp = empty($_GET['timestamp']) ? (empty($_POST['timestamp']) ? '' : $_POST['timestamp']) : $_GET['timestamp'];
+$data = array_merge($_GET, $_POST);
 
-if (empty($sign)) {
+if (empty($data['sign'])) {
     exit(json_encode(['code' => 1003, 'message' => '缺少参数sign']));
 }
 
-if (empty($timestamp)) {
+if (empty($data['$timestamp'])) {
     exit(json_encode(['code' => 1004, 'message' => '缺少参数timestamp']));
 }
 
-$sign = trim($sign);
-$timestamp = trim($timestamp);
-
-if ((Helper::time() - $timestamp) > 1800) {
+if (time() - intval($data['$timestamp']) > 1800) {
     exit(json_encode(['code' => 1005, 'message' => '请求过期']));
 }
 
