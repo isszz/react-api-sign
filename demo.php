@@ -3,7 +3,7 @@
 require SignSrv.php;
 
 $sign = empty($_GET['sign']) ? (empty($_POST['sign']) ? '' : $_POST['sign']) : $_GET['sign'];
-$timestamp = empty($_GET['timestamp']) ? ignSrv(empty($_POST['timestamp']) ? '' : $_POST['timestamp']) : $_GET['timestamp'];
+$timestamp = empty($_GET['timestamp']) ? (empty($_POST['timestamp']) ? '' : $_POST['timestamp']) : $_GET['timestamp'];
 
 if (empty($sign)) {
     exit(json_encode(['code' => 1003, 'message' => '缺少参数sign']));
