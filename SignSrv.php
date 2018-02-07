@@ -2,7 +2,7 @@
 
 class SignSrv {
 
-	public static $secret = 'ergweyh45t345t34t34';
+	public static $secret = 'kjhsdfhksjhf239ur2hfehf23';
     
 	public static function sign($data = []) {
 		if (empty($data)) {
