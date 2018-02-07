@@ -33,4 +33,5 @@ class SignSrv {
 		$buff = trim($buff, '&');
 		return $buff;
 	}
+	
 }
